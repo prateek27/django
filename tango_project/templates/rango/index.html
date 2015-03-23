@@ -7,10 +7,17 @@
 
 	<body>
 		<h1> Hi ... </h1>
-		<strong>{{ myname }}</strong>
-		<div>
-		<img src="{% static 'images/birthday.jpg'%}" height = "50%" width="50%"/>
-		</div>
+		{% if category_list  %}
+			<ul>
+			{% for cat in category_list %}	
+				<a href="/rango/category/{{cat.name}}"><li>{{cat}}</li></a>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<h2>No Categories available</h2>
+		{%endif%}
+
 		<a href = "/rango/about">Click here to go to about page.</a>
+
 	</body>
 </html>

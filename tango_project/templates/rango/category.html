@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Rango Page</title>
+	</head>
+
+	<body>
+		<h1> Hi ... </h1>
+		{% if page_objects  %}
+			<ol>
+			{% for page in page_objects %}	
+				<li>{{page.title}} {{page.views}}</li>
+			{% endfor %}
+			</ol>
+		{% else %}
+			<h2>No Pages available</h2>
+		{%endif%}
+
+		<a href = "/rango/about">(\m/)</a>
+
+	</body>
+</html>
