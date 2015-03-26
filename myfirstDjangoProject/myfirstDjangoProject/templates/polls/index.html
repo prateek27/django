@@ -1,0 +1,27 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+    <head>
+        <title> All Questions </title>
+        <link rel = "stylesheet" href="{% static 'css/base.css' %}" >
+    </head>
+    <body>
+        <ul>
+            {% for q in ques %}
+            <li>
+                <div class="title">{{q.question_text}}</div>
+                <br/>
+                on {{q.pub_date |date:"M/d"|lower }}
+                <ul>
+                    {% for choice in q.choice_set.all %}
+                    <li>
+                        {{ choice.choice_text }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor%}
+        </ul>
+
+    </body>
+</html>
